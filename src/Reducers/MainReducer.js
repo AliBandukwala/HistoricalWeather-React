@@ -1,5 +1,6 @@
 const initState = []
 
+// Reducer to cache data and set the global state with it:
 const MainReducer = (state = initState, action) => {
     switch(action.type)
     {

@@ -5,6 +5,8 @@ import {getData} from '../Actions/ActionCreators'
 
 import { MenuItem, TextField} from '@material-ui/core'
 
+
+// SearchField component to select the name of the city:
 const SearchField = ({citySelected}) => {
 
     const [cityName, setCityName] = useState("")
@@ -16,7 +18,7 @@ const SearchField = ({citySelected}) => {
 
     return (
         <div className="d-flex flex-row justify-content-center mt-4">
-            <TextField style={{width:250, backgroundColor:"rgb(255,255,255)"}} label="Select a city" value={cityName} variant="outlined" onChange={handleChange} select>
+            <TextField style={{width:250, backgroundColor:"rgb(255,255,255)",border:0,outline:0}} label="Select a city" value={cityName} variant="outlined" onChange={handleChange} select>
                 <MenuItem value="Aachen">Aachen</MenuItem>
                 <MenuItem value="Bremen">Bremen</MenuItem>
                 <MenuItem value="Hamburg">Hamburg</MenuItem>
@@ -27,6 +29,9 @@ const SearchField = ({citySelected}) => {
     );
 }
 
+
+// function to inject dispatch/actions as props into the component.
+//getData() is the action dispatched to get the data from firestore DB. 
 const mapDispatchToProps = (dispatch) => {
     return{
         citySelected: (cityName) => {dispatch(getData(cityName))}

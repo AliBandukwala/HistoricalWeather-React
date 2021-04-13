@@ -7,6 +7,7 @@ const Graph = ({data}) => {
   
 const [graphData,setGraphData] = useState([]);
 
+// useEffect hook to set the data for the graph as name changes and component re-renders:
 useEffect(() => {
     setGraphData(data)
 },[data,graphData])
@@ -28,6 +29,7 @@ useEffect(() => {
   );
 }
 
+// function to pass redux store data (state) into a component as props:
 const mapStateToProps = (state) => {
     return{
         data: state.mainReducer
